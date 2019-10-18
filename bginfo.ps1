@@ -3,14 +3,18 @@
 # Update ScriptPath variable if different
 
 # Variables
-$SetupFolder = "C:\SETUP\BGinfo"
-Invoke-WebRequest "https://download.sysinternals.com/files/BGInfo.zip" -OutFile "BGInfo.zip"
-Expand-Archive $Installer -DestinationPath $SetupFolder
+$SetupFolder = "C:\SETUP"
+$BGinfoFolder = $SetupFolder + "\BGinfo"
 $BginfoFile = "bginfo.bgi"
 
+# Download BGinfo
+$ZipFile = $SetupFolder + "\BGInfo.zip"
+Invoke-WebRequest "https://download.sysinternals.com/files/BGInfo.zip" -OutFile $ZipFile
+Expand-Archive $ZipFile -DestinationPath $SetupFolder
+
 # Create Auto Start File
-$Bgfile = $SetupFolder + "\bg.cmd"
-$BgScript = "@" + $SetupFolder + "\bginfo.exe " + $SetupFolder + "\" + $bginfoFile + " /timer:0 /nolicprompt"
+$Bgfile = $BGinfoFolder + "\bg.cmd"
+$BgScript = "@" + $BGinfoFolder + "\bginfo.exe " + $BGinfoFolder + "\" + $bginfoFile + " /timer:0 /nolicprompt"
 New-Item $bgfile -force
 Set-Content $bgfile $bgscript
 
@@ -18,3 +22,6 @@ Set-Content $bgfile $bgscript
 $Destination = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp" 
 Copy-Item -Path $bgfile -Destination $Destination -force
 Write-Host "File '$bgfile' was added to Startup successfully." -ForegroundColor Green
+
+# Execute BGinfo
+Start-Process $Bgfile
