@@ -1,4 +1,4 @@
-# Download repository files
+# Download Repository Files
 $SetupFolder = "C:\Setup"
 New-Item -ItemType "directory" -Path $SetupFolder -force
 $SourceURL = "https://github.com/guillermo-musumeci/windows-auto-base/archive/master.zip"
@@ -10,10 +10,10 @@ Copy-Item ($ZIPFolder + "\*") -Destination $SetupFolder -Recurse -Force
 Remove-Item -path $ZIPFolder -Recurse -Force -Confirm:$false
 Remove-Item $Installer -Force
 
-# set temp folders
+# Set Temp Folders
 Invoke-Expression ($SetupFolder + "\set-temp.ps1")
 
-# configure BGinfo
+# Configure BGinfo
 Invoke-Expression ($SetupFolder + "\bginfo.ps1")
 
 # Install Google Chrome
