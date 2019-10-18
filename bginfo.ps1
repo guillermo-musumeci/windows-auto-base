@@ -10,7 +10,7 @@ $BginfoFile = "bginfo.bgi"
 # Download BGinfo
 $ZipFile = $SetupFolder + "\BGInfo.zip"
 Invoke-WebRequest "https://download.sysinternals.com/files/BGInfo.zip" -OutFile $ZipFile
-Expand-Archive $ZipFile -DestinationPath $SetupFolder
+Expand-Archive $ZipFile -DestinationPath $BGinfoFolder
 
 # Create Auto Start File
 $Bgfile = $BGinfoFolder + "\bg.cmd"
