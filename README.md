@@ -1,10 +1,10 @@
-**Windows Auto Repository**
+# Windows Auto Repository
 
-Download and install base applications to configure Windows Server 2016 &amp; 2019
+Download and install base applications to configure **Windows Server 2016** &amp; **Windows Server 2019**
 
-bginfo.bgi --> BGinfo preconfigured file
+- bginfo.bgi --> BGinfo preconfigured file
 
-bginfo.ps1 --> Download and configure BGInfo
+- bginfo.ps1 --> Download and configure BGInfo
 
 
 
