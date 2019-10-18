@@ -2,6 +2,8 @@
 
 Download and install base applications to configure **Windows Server 2016** and **Windows Server 2019**
 
+Dwonload and execute the launch.ps1 to install the applications
+
 Scripts:
 
 - bginfo.ps1 --> Download and configure BGInfo
