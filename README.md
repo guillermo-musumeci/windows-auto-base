@@ -6,6 +6,7 @@ Scripts:
 
 - bginfo.ps1 --> Download and configure BGInfo
 - install-google-chrome.ps1 --> Install Google Chrome
+- install-vscode.ps1 --> Install Visual Studio Code
 - set-temp-ps1 --> Set TEMP folders
 
 Extra files:
