@@ -3,11 +3,14 @@
 # Update ScriptPath variable if different
 
 # Variables
-$BginfoFile = "kopicloud.bgi"
-cd
+$SetupFolder = "C:\SETUP\BGinfo"
+Invoke-WebRequest "https://download.sysinternals.com/files/BGInfo.zip" -OutFile "BGInfo.zip"
+Expand-Archive $Installer -DestinationPath $SetupFolder
+$BginfoFile = "bginfo.bgi"
+
 # Create Auto Start File
-$Bgfile = $ScriptPath + "\bg.cmd"
-$BgScript = "@" + $ScriptPath + "\bginfo.exe " + $ScriptPath + "\" + $bginfoFile + " /timer:0 /nolicprompt"
+$Bgfile = $SetupFolder + "\bg.cmd"
+$BgScript = "@" + $SetupFolder + "\bginfo.exe " + $SetupFolder + "\" + $bginfoFile + " /timer:0 /nolicprompt"
 New-Item $bgfile -force
 Set-Content $bgfile $bgscript
 
